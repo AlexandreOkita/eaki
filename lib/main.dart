@@ -1,9 +1,5 @@
-import 'package:eaki/components/advance_button.dart';
-import 'package:eaki/components/not_mapped_button.dart';
-import 'package:eaki/components/open_text_input.dart';
-import 'package:eaki/components/option_button.dart';
 import 'package:eaki/components/option_tile_list.dart';
-import 'package:eaki/components/red_back_button.dart';
+import 'package:eaki/pages/first_question_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -21,9 +17,11 @@ class EakiMainWidget extends StatelessWidget {
       theme: ThemeData(
         primaryColor: const Color(0xff0E4DA4),
         errorColor: const Color(0xffE74C3C),
+        scaffoldBackgroundColor: const Color(0xffFFFFFF),
         fontFamily: "Inter",
         textTheme: const TextTheme(
             headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+            headline6: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
             bodyText1: TextStyle(
               fontSize: 16,
               color: Color(0xff263238),
@@ -41,7 +39,7 @@ class EakiMainWidget extends StatelessWidget {
               fontSize: 14,
             )),
       ),
-      home: const HomePage(),
+      home: const FirstQuestionPage(),
     );
   }
 }
