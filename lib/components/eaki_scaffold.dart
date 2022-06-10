@@ -16,7 +16,8 @@ class EakiScaffold extends ConsumerWidget {
         backgroundColor: theme.primaryColor,
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: screen.width * 0.1),
+        padding:
+            EdgeInsets.symmetric(horizontal: screen.width * 0.1, vertical: screen.height * 0.05),
         child: body,
       ),
     );

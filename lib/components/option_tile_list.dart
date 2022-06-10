@@ -1,9 +1,11 @@
+import 'package:eaki/components/not_mapped_button.dart';
+import 'package:eaki/components/open_text_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class OptionTileList extends ConsumerStatefulWidget {
   final List<String> items;
-  final StateProvider<String>? provider;
+  final AutoDisposeStateProvider<String>? provider;
   const OptionTileList({this.provider, required this.items, Key? key}) : super(key: key);
 
   @override
@@ -12,37 +14,62 @@ class OptionTileList extends ConsumerStatefulWidget {
 
 class _OptionTileListState extends ConsumerState<OptionTileList> {
   int selectedIndex = -1;
+  String search = "";
+  List<String>? filteredItems;
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final screen = MediaQuery.of(context).size;
-    return SizedBox(
-      height: screen.height * 0.3,
-      child: ListView.separated(
-        addAutomaticKeepAlives: false,
-        itemCount: widget.items.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Container(
-            color: selectedIndex == index ? const Color(0x303A76CA) : const Color(0x00ffffff),
-            child: ListTile(
-              onTap: () => setState(() {
-                selectedIndex = index;
-                if (widget.provider != null) {
-                  ref.read(widget.provider!.notifier).state = widget.items[selectedIndex];
-                }
-              }),
-              title: Text(
-                widget.items[index],
-                style: textTheme.bodyText1,
-              ),
-            ),
-          );
-        },
-        separatorBuilder: (BuildContext context, int index) {
-          return const Divider();
-        },
-      ),
+    if (search != "") {
+      filteredItems = widget.items.where((item) => item.contains(search)).toList();
+    } else {
+      filteredItems = widget.items;
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        OpenTextInput(
+          labelText: "Pesquisar Especialidade",
+          onFieldChanged: (value) => setState(() {
+            search = value;
+          }),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        const NotMappedButton(text: "Não encontrei minha especialidade"),
+        const SizedBox(
+          height: 10,
+        ),
+        Expanded(
+          child: ListView.separated(
+            itemCount: filteredItems?.length ?? widget.items.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Container(
+                color: selectedIndex == index ? const Color(0x303A76CA) : const Color(0x00ffffff),
+                child: ListTile(
+                  onTap: () => setState(() {
+                    selectedIndex = index;
+                    if (widget.provider != null) {
+                      ref.read(widget.provider!.notifier).state =
+                          filteredItems?[selectedIndex] ?? widget.items[selectedIndex];
+                    }
+                  }),
+                  title: Text(
+                    filteredItems?[index] ?? widget.items[index],
+                    style: textTheme.bodyText1,
+                  ),
+                ),
+              );
+            },
+            separatorBuilder: (BuildContext context, int index) {
+              return const Divider();
+            },
+          ),
+        ),
+      ],
     );
   }
 }

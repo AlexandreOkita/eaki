@@ -1,7 +1,6 @@
-import 'package:eaki/components/generic_option_form_page.dart';
-import 'package:eaki/components/not_mapped_button.dart';
-import 'package:eaki/components/option_button.dart';
 import 'package:eaki/components/option_tile_list.dart';
+import 'package:eaki/pages/appointment_type_page.dart';
+import 'package:eaki/pages/choose_specialty_page.dart';
 import 'package:eaki/pages/first_question_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -16,61 +15,39 @@ class EakiMainWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Eaki',
-      theme: ThemeData(
-        primaryColor: const Color(0xff0E4DA4),
-        errorColor: const Color(0xffE74C3C),
-        scaffoldBackgroundColor: const Color(0xffFFFFFF),
-        fontFamily: "Inter",
-        textTheme: const TextTheme(
-          headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-          headline6: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-          bodyText1: TextStyle(
-            fontSize: 16,
-            color: Color(0xff263238),
-            fontWeight: FontWeight.w400,
-          ),
-          bodyText2: TextStyle(
-            fontSize: 14,
-            color: Color(0xff767171),
-            fontWeight: FontWeight.w400,
-          ),
-          button: TextStyle(
-            fontSize: 14,
-            color: Color(0xffFFFFFF),
-            fontWeight: FontWeight.w500,
-            letterSpacing: 1.5,
-          ),
-          caption: TextStyle(
-            decoration: TextDecoration.underline,
-            color: Color(0xff3A76CA),
-            fontSize: 14,
+        title: 'Eaki',
+        theme: ThemeData(
+          primaryColor: const Color(0xff0E4DA4),
+          errorColor: const Color(0xffE74C3C),
+          scaffoldBackgroundColor: const Color(0xF9FFFFFF),
+          fontFamily: "Inter",
+          textTheme: const TextTheme(
+            headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+            headline6: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            bodyText1: TextStyle(
+              fontSize: 16,
+              color: Color(0xff263238),
+              fontWeight: FontWeight.w400,
+            ),
+            bodyText2: TextStyle(
+              fontSize: 14,
+              color: Color(0xff767171),
+              fontWeight: FontWeight.w400,
+            ),
+            button: TextStyle(
+              fontSize: 14,
+              color: Color(0xffFFFFFF),
+              fontWeight: FontWeight.w500,
+              letterSpacing: 1.5,
+            ),
+            caption: TextStyle(
+              decoration: TextDecoration.underline,
+              color: Color(0xff3A76CA),
+              fontSize: 14,
+            ),
           ),
         ),
-      ),
-      home: GenericOptionFormPage(
-        options: [
-          OptionButton(
-            text: "Consulta Agendada",
-            onPressed: () => {},
-          ),
-          OptionButton(
-            text: "Consulta de Retorno",
-            onPressed: () => {},
-          ),
-          OptionButton(
-            text: "Encaixe com email",
-            onPressed: () => {},
-          ),
-        ],
-        previousOption: 'Consulta',
-        question: 'O que você veio fazer hoje?',
-        notMappedButton: NotMappedButton(
-          text: "Não possuo agendamento",
-          onPressed: () => {},
-        ),
-      ),
-    );
+        home: const FirstQuestionPage());
   }
 }
 

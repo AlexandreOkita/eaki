@@ -12,7 +12,7 @@ class NotMappedButton extends ConsumerWidget {
     final textTheme = Theme.of(context).textTheme;
     return InkWell(
       hoverColor: const Color(0x103A76CA),
-      onTap: () => onPressed,
+      onTap: onPressed,
       child: Text(text, style: textTheme.caption),
     );
   }
