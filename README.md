@@ -14,4 +14,6 @@ O eaki é um app multiplataforma desenvolvido em flutter com as seguintes funcio
 
 ## Como Executar
 
+Instale o flutter em sua máquina: https://docs.flutter.dev/get-started/install
+
 ## Como Testar
