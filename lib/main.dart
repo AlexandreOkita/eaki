@@ -1,6 +1,4 @@
 import 'package:eaki/components/option_tile_list.dart';
-import 'package:eaki/pages/appointment_type_page.dart';
-import 'package:eaki/pages/choose_specialty_page.dart';
 import 'package:eaki/pages/first_question_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -22,9 +20,21 @@ class EakiMainWidget extends StatelessWidget {
           scaffoldBackgroundColor: const Color(0xF9FFFFFF),
           fontFamily: "Inter",
           textTheme: const TextTheme(
-            headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-            headline4: TextStyle(fontSize: 34.0, fontWeight: FontWeight.w600),
-            headline6: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            headline1: TextStyle(
+              fontSize: 72.0,
+              fontWeight: FontWeight.bold,
+              color: Color(0xff263238),
+            ),
+            headline4: TextStyle(
+              fontSize: 34.0,
+              fontWeight: FontWeight.w600,
+              color: Color(0xff263238),
+            ),
+            headline6: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: Color(0xff263238),
+            ),
             bodyText1: TextStyle(
               fontSize: 16,
               color: Color(0xff263238),
