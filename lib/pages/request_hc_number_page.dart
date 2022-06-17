@@ -8,8 +8,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class RequestHCNumberPage extends ConsumerWidget {
   final String previousOption;
+  final _formKey = GlobalKey<FormState>();
 
-  const RequestHCNumberPage({required this.previousOption, Key? key}) : super(key: key);
+  RequestHCNumberPage({required this.previousOption, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -27,6 +28,7 @@ class RequestHCNumberPage extends ConsumerWidget {
       notMappedButton: NotMappedButton(
         text: "Não sei meu número HC",
         onPressed: () {
+          _formKey.currentState!.validate();
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -36,6 +38,7 @@ class RequestHCNumberPage extends ConsumerWidget {
         },
       ),
       centralWidget: OpenTextInput(
+        key: _formKey,
         labelText: "Número HC",
         onFieldSubmitted: (value) => {},
       ),

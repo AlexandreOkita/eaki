@@ -4,10 +4,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class OpenTextInput extends ConsumerWidget {
   final GlobalKey<FormState>? formKey;
   final String labelText;
+  final String? Function(String?)? validator;
   final void Function(String)? onFieldSubmitted;
   final void Function(String)? onFieldChanged;
 
   const OpenTextInput({
+    this.validator,
     this.formKey,
     required this.labelText,
     this.onFieldSubmitted,
@@ -20,6 +22,7 @@ class OpenTextInput extends ConsumerWidget {
     return Form(
       child: TextFormField(
         key: formKey,
+        validator: validator ?? _defaultValidator,
         onFieldSubmitted: onFieldSubmitted,
         onChanged: onFieldChanged,
         decoration: InputDecoration(
@@ -28,5 +31,12 @@ class OpenTextInput extends ConsumerWidget {
         ),
       ),
     );
+  }
+
+  String? _defaultValidator(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter some text';
+    }
+    return null;
   }
 }

@@ -20,7 +20,7 @@ class ChooseSpecialtyPage extends ConsumerWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) =>
-                        const RequestHCNumberPage(previousOption: "Escolher Especialidade"),
+                        RequestHCNumberPage(previousOption: "Escolher Especialidade"),
                   ),
                 )
               }
