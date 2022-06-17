@@ -23,6 +23,7 @@ class EakiMainWidget extends StatelessWidget {
           fontFamily: "Inter",
           textTheme: const TextTheme(
             headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+            headline4: TextStyle(fontSize: 34.0, fontWeight: FontWeight.w600),
             headline6: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
             bodyText1: TextStyle(
               fontSize: 16,

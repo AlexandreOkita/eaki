@@ -17,10 +17,12 @@ class ChooseSpecialtyPage extends ConsumerWidget {
       onAdvance: chosenSpecialty != ""
           ? () => {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            const RequestHCNumberPage(previousOption: "Escolher Especialidade")))
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        const RequestHCNumberPage(previousOption: "Escolher Especialidade"),
+                  ),
+                )
               }
           : null,
       previousOption: previousOption,
