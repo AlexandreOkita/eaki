@@ -27,9 +27,13 @@ class ChooseSpecialtyPage extends ConsumerWidget {
           : null,
       previousOption: previousOption,
       question: "Selecione a especialidade:",
-      centralWidget: OptionTileList(
-          provider: chosenSpecialtyProvider,
-          items: const ["caio", "okita", "coruja", "alexandre", "lari", "amanda"]),
+      centralWidget: OptionTileList(provider: chosenSpecialtyProvider, items: const [
+        "Alergia e Imunologia Ped",
+        "Crescimento",
+        "Gastropediatria",
+        "Pneumologia Ped",
+        "Reumatologia"
+      ]),
     );
   }
 }

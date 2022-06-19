@@ -28,7 +28,6 @@ class RequestHCNumberPage extends ConsumerWidget {
       notMappedButton: NotMappedButton(
         text: "Não sei meu número HC",
         onPressed: () {
-          _formKey.currentState!.validate();
           Navigator.push(
             context,
             MaterialPageRoute(

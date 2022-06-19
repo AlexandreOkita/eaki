@@ -1,4 +1,5 @@
 import 'package:eaki/components/generic_result_page.dart';
+import 'package:eaki/pages/first_question_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -15,8 +16,10 @@ class GoToYellowTrackPage extends ConsumerWidget {
       mainText: 'Dirija-se para',
       pageTitle: 'Direcionamento',
       secondaryText: 'Faça seu cadastro no HC no mesmo andar do ambulatório de pediatria.',
-      onAdvance: () => {},
-      onBack: () => {},
+      onAdvance: () => {
+        Navigator.push(
+            context, MaterialPageRoute(builder: ((context) => const FirstQuestionPage())))
+      },
     );
   }
 }
