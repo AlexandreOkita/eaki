@@ -21,7 +21,7 @@ class _OptionTileListState extends ConsumerState<OptionTileList> {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     if (search != "") {
-      filteredItems = widget.items.where((item) => item.contains(search)).toList();
+      filteredItems = widget.items.where((item) => item.toLowerCase().contains(search.toLowerCase())).toList();
     } else {
       filteredItems = widget.items;
     }
