@@ -1,0 +1,16 @@
+{
+	"name": "Dart (Community)",
+	"image": "cirrusci/flutter",
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"dart-code.dart-code",
+		"akamud.vscode-theme-onedark",
+		"PKief.material-icon-theme",
+		"Dart-Code.flutter"
+	],
+
+	"forwardPorts": [3000]
+}
+
+//flutter run -d web-server --web-hostname=0.0.0.0 --web-port=3000
