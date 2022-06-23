@@ -1,8 +1,8 @@
 import 'package:eaki/components/eaki_scaffold.dart';
 import 'package:eaki/components/option_button.dart';
 import 'package:eaki/components/red_back_button.dart';
-import 'package:eaki/pages/appointment_type_page.dart';
 import 'package:eaki/pages/go_to_yellow_track_page.dart';
+import 'package:eaki/pages/visit_purpose_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -39,7 +39,7 @@ class FirstQuestionPage extends ConsumerWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                              const AppointmentTypePage(previousOption: "Já sou paciente do HC"))),
+                              const VisitPurposePage(previousOption: "Já sou paciente do HC"))),
                 ),
                 OptionButton(
                   text: "Minha primeira vez no HC",

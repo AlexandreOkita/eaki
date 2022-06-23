@@ -1,8 +1,9 @@
 import 'package:eaki/components/generic_form_page.dart';
 import 'package:eaki/components/not_mapped_button.dart';
 import 'package:eaki/components/open_text_input.dart';
-import 'package:eaki/pages/pick_number_page.dart';
+import 'package:eaki/pages/is_preferential_page.dart';
 import 'package:eaki/pages/request_name_page.dart';
+import 'package:eaki/viewmodels/queue_number_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -21,7 +22,9 @@ class RequestHCNumberPage extends ConsumerWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const PickNumberPage(),
+            builder: (context) => const IsPreferentialPage(
+              previousOption: 'Número HC',
+            ),
           ),
         ),
       },
@@ -39,7 +42,7 @@ class RequestHCNumberPage extends ConsumerWidget {
       centralWidget: OpenTextInput(
         key: _formKey,
         labelText: "Número HC",
-        onFieldSubmitted: (value) => {},
+        onFieldSubmitted: (value) => {ref.read(queueNumberVM).updateHCNumber(value)},
       ),
     );
   }
