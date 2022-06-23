@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "195472509064",
+    "project_id": "eaki-unicamp",
+    "storage_bucket": "eaki-unicamp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195472509064:android:60dd77076daf4fcf34373d",
+        "android_client_info": {
+          "package_name": "com.example.eaki"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195472509064-rcjhp5i3jdedks8gp9ogkjjju24u6p68.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsuBCSzKlcR9zbLZJjKvXDLpY-3ElQPFE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195472509064-rcjhp5i3jdedks8gp9ogkjjju24u6p68.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
