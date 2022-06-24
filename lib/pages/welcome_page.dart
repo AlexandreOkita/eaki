@@ -1,4 +1,3 @@
-
 import 'package:eaki/pages/first_question_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -14,28 +13,45 @@ class WelcomePage extends ConsumerWidget {
 
     return Scaffold(
       body: Padding(
-        padding:
-            EdgeInsets.symmetric(horizontal: screen.width * 0.1, vertical: screen.height * 0.05),
+        padding: EdgeInsets.symmetric(horizontal: screen.width * 0.1, vertical: screen.height * 0.05),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("ÉAKI", 
-            style: textTheme.headline1,),
-            Center(
-              child: Text("Responda o questionário e vá para a fila correta",
-              style: textTheme.headlineSmall),
+            Flexible(
+              flex: 1,
+              child: Text(
+                "ÉAKI",
+                style: textTheme.headline1,
+              ),
             ),
-             StartButton(
-                        onPressed: () => {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        FirstQuestionPage()),
+            Flexible(
+              flex: 3,
+              child: Image.asset(
+                'assets/logo.png',
+              ),
+            ),
+            Flexible(
+              flex: 1,
+              child: Center(
+                child: Text(
+                  "Responda o questionário e vá para a fila correta",
+                  style: textTheme.headlineSmall,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+            Flexible(
+              flex: 2,
+              child: StartButton(
+                onPressed: () => {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const FirstQuestionPage()),
                   ),
-              },
+                },
+              ),
             ),
-
           ],
         ),
       ),
