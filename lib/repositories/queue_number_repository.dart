@@ -23,7 +23,6 @@ class QueueNumberRepository {
 
     final queueNumbersDocs = await collection
         .where("date", isGreaterThan: date)
-        .where("visit_purpose", isEqualTo: queueDTO.visitPurpose.name)
         .orderBy("date")
         .get();
 
