@@ -13,7 +13,6 @@ class PickNumberPage extends ConsumerWidget {
     return ref.watch(queueNumberGeneratorProvider).when(
           loading: (() => const Center(child: CircularProgressIndicator())),
           error: (e, st) {
-            print(e);
             return Scaffold(
               body: Center(
                 child: Text("$e\n$st"),
