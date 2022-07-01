@@ -34,13 +34,13 @@ class VisitPurposePage extends ConsumerWidget {
             },
           ),
           OptionButton(
-            text: "Procedimento",
+            text: "Curativo, medicamento ou outro procedimento",
             onPressed: () {
               ref.read(queueNumberVM).updateVisitPurpose(VisitPurpose.procedure);
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => RequestHCNumberPage(previousOption: 'Procedimento')),
+                    builder: (context) => RequestHCNumberPage(previousOption: 'Curativo, medicamento ou outro procedimento')),
               );
             },
           ),
