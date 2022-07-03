@@ -20,6 +20,7 @@ class _OptionTileListState extends ConsumerState<OptionTileList> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final _scrollController = ScrollController();
     if (search != "") {
       filteredItems = widget.items.where((item) => item.toLowerCase().contains(search.toLowerCase())).toList();
     } else {
@@ -44,29 +45,35 @@ class _OptionTileListState extends ConsumerState<OptionTileList> {
           height: 10,
         ),
         Expanded(
-          child: ListView.separated(
-            itemCount: filteredItems?.length ?? widget.items.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Container(
-                color: selectedIndex == index ? const Color(0x303A76CA) : const Color(0x00ffffff),
-                child: ListTile(
-                  onTap: () => setState(() {
-                    selectedIndex = index;
-                    if (widget.provider != null) {
-                      ref.read(widget.provider!.notifier).state =
-                          filteredItems?[selectedIndex] ?? widget.items[selectedIndex];
-                    }
-                  }),
-                  title: Text(
-                    filteredItems?[index] ?? widget.items[index],
-                    style: textTheme.bodyText1,
+          
+          child: Scrollbar(
+            thumbVisibility: true,
+            controller: _scrollController,
+            child: ListView.separated(
+              controller: _scrollController,
+              itemCount: filteredItems?.length ?? widget.items.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  color: selectedIndex == index ? const Color(0x303A76CA) : const Color(0x00ffffff),
+                  child: ListTile(
+                    onTap: () => setState(() {
+                      selectedIndex = index;
+                      if (widget.provider != null) {
+                        ref.read(widget.provider!.notifier).state =
+                            filteredItems?[selectedIndex] ?? widget.items[selectedIndex];
+                      }
+                    }),
+                    title: Text(
+                      filteredItems?[index] ?? widget.items[index],
+                      style: textTheme.bodyText1,
+                    ),
                   ),
-                ),
-              );
-            },
-            separatorBuilder: (BuildContext context, int index) {
-              return const Divider();
-            },
+                );
+              },
+              separatorBuilder: (BuildContext context, int index) {
+                return const Divider();
+              },
+            ),
           ),
         ),
       ],

@@ -31,12 +31,12 @@ class AppointmentTypePage extends ConsumerWidget {
       centralWidget: OptionButtonList(
         options: [
           OptionButton(
-            text: "Consulta Agendada",
+            text: "Consulta Agendada ou Retorno",
             onPressed: () => {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ChooseSpecialtyPage(previousOption: "Consulta Agendada"),
+                  builder: (context) => ChooseSpecialtyPage(previousOption: "Consulta Agendada ou Retorno"),
                 ),
               ),
             },

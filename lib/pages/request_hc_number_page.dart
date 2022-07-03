@@ -43,6 +43,7 @@ class RequestHCNumberPage extends ConsumerWidget {
         key: _formKey,
         labelText: "Número HC",
         onFieldSubmitted: (value) => {ref.read(queueNumberVM).updateHCNumber(value)},
+        onFieldChanged: (value) => {ref.read(queueNumberVM).updateHCNumber(value)},
       ),
     );
   }

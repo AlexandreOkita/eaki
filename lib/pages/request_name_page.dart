@@ -28,6 +28,7 @@ class RequestNamePage extends ConsumerWidget {
       centralWidget: OpenTextInput(
         labelText: "Nome e Sobrenome",
         onFieldSubmitted: (value) => {ref.read(queueNumberVM).updateName(value)},
+        onFieldChanged: (value) => {ref.read(queueNumberVM).updateName(value)},
       ),
     );
   }
