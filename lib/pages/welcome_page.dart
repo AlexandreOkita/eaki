@@ -25,6 +25,7 @@ class WelcomePage extends ConsumerWidget {
               ref.read(authVM).anonymousLogin();
               return const LoadingScreen();
             } else {
+              ref.read(loggedUser.notifier).state = user;
               return ref.watch(currentQueueNumber).when(
                     error: (e, st) => ErrorScreen(st, e),
                     loading: () => const LoadingScreen(),
@@ -67,7 +68,8 @@ class WelcomePage extends ConsumerWidget {
                                         onPressed: () => {
                                           Navigator.push(
                                             context,
-                                            MaterialPageRoute(builder: (context) => const FirstQuestionPage()),
+                                            MaterialPageRoute(
+                                                builder: (context) => const FirstQuestionPage()),
                                           ),
                                         },
                                       ),

@@ -25,7 +25,7 @@ class QueueNumberRepository {
         .orderBy("date")
         .get();
     return query.docs
-        .mapIndexed((index, e) => QueueNumber.fromMap(e as Map<String, dynamic>, index + 1))
+        .mapIndexed((index, e) => QueueNumber.fromMap(e.data() as Map<String, dynamic>, index + 1))
         .where((element) => element.token == token)
         .firstOrNull;
   }

@@ -31,7 +31,7 @@ class QueueNumber {
   factory QueueNumber.fromMap(Map<String, dynamic> map, int number) {
     return QueueNumber(
       token: map["token"],
-      visitPurpose: map["visit_purpose"],
+      visitPurpose: map["visit_purpose"].toString().toVisitPurpose(),
       number: number,
       date: map["date"].toDate(),
       hcNumber: map["hc_number"],
@@ -43,4 +43,17 @@ class QueueNumber {
 enum VisitPurpose {
   procedure,
   appointment,
+}
+
+extension VisitPurposeExtension on String {
+  VisitPurpose toVisitPurpose() {
+    switch (this) {
+      case "procedure":
+        return VisitPurpose.procedure;
+      case "appointment":
+        return VisitPurpose.appointment;
+      default:
+        return VisitPurpose.appointment;
+    }
+  }
 }
