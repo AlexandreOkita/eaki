@@ -1,5 +1,6 @@
 import 'package:eaki/components/option_tile_list.dart';
 import 'package:eaki/firebase_options.dart';
+import 'package:eaki/pages/pick_number_page.dart';
 import 'package:eaki/pages/welcome_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,11 @@ class EakiMainWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Eaki',
+        initialRoute: '/',
+        routes: {
+          '/': (context) => const WelcomePage(),
+          'number': (context) => const PickNumberPage(),
+        },
         theme: ThemeData(
           primaryColor: const Color(0xff0E4DA4),
           errorColor: const Color(0xffE74C3C),
@@ -64,7 +70,7 @@ class EakiMainWidget extends StatelessWidget {
             ),
           ),
         ),
-        home: const WelcomePage());
+        );
   }
 }
 

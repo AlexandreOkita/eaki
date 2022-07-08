@@ -30,6 +30,7 @@ class WelcomePage extends ConsumerWidget {
                     error: (e, st) => ErrorScreen(st, e),
                     loading: () => const LoadingScreen(),
                     data: (queueNumber) {
+                      print(queueNumber);
                       return queueNumber == null
                           ? Scaffold(
                               body: Padding(
@@ -66,7 +67,7 @@ class WelcomePage extends ConsumerWidget {
                                       flex: 2,
                                       child: StartButton(
                                         onPressed: () => {
-                                          Navigator.push(
+                                          Navigator.pushReplacement(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) => const FirstQuestionPage()),

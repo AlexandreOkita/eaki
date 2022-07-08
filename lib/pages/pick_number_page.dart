@@ -1,4 +1,5 @@
 import 'package:eaki/components/generic_result_page.dart';
+import 'package:eaki/pages/welcome_page.dart';
 import 'package:eaki/providers/queue_number_provider.dart';
 import 'package:eaki/viewmodels/auth_vm.dart';
 import 'package:flutter/material.dart';
@@ -12,15 +13,18 @@ class PickNumberPage extends ConsumerWidget {
     final textTheme = Theme.of(context).textTheme;
     ref.read(authVM).anonymousLogin();
     return ref.watch(queueNumberGeneratorProvider).when(
-          loading: (() => const Center(child: CircularProgressIndicator())),
-          error: (e, st) {
-            return Scaffold(
-              body: Center(
-                child: Text("$e\n$st"),
-              ),
-            );
-          },
-          data: (data) => GenericResultPage(
+        loading: (() => const Center(
+              child: CircularProgressIndicator(),
+            )),
+        error: (e, st) {
+          return Scaffold(
+            body: Center(
+              child: Text("$e\n$st"),
+            ),
+          );
+        },
+        data: (data) {
+          return GenericResultPage(
             dataText: Text(
               data.number.toString(),
               style: textTheme.headline1,
@@ -28,8 +32,15 @@ class PickNumberPage extends ConsumerWidget {
             mainText: 'Sua senha é',
             pageTitle: 'Senha',
             secondaryText: 'Aguarde ser chamado na tela da recepção.',
-            onAdvance: () => {Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName))},
-          ),
-        );
+            onAdvance: () => {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const WelcomePage(),
+                ),
+              ),
+            },
+          );
+        });
   }
 }

@@ -20,11 +20,10 @@ class IsPreferentialPage extends ConsumerWidget {
           OptionButton(
             text: "Senha Não Preferencial",
             onPressed: () {
-              Navigator.push(
+              Navigator.pushNamedAndRemoveUntil(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const PickNumberPage(),
-                ),
+                'number',
+                (_) => false,
               );
             },
           ),
@@ -33,8 +32,7 @@ class IsPreferentialPage extends ConsumerWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                    builder: (context) => const PickNumberPage()),
+                MaterialPageRoute(builder: (context) => const PickNumberPage()),
               );
             },
           ),
