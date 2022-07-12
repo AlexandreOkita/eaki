@@ -3,8 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AdvanceButton extends ConsumerWidget {
   final void Function()? onPressed;
+  final String customText;
 
-  const AdvanceButton({this.onPressed, Key? key}) : super(key: key);
+  const AdvanceButton({this.onPressed, this.customText = "CONFIRMAR", Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -20,7 +21,7 @@ class AdvanceButton extends ConsumerWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("CONFIRMAR", style: theme.textTheme.button),
+            Text(customText, style: theme.textTheme.button),
           ],
         ),
       ),

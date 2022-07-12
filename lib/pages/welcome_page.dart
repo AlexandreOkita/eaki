@@ -1,3 +1,4 @@
+import 'package:eaki/components/advance_button.dart';
 import 'package:eaki/components/eaki_scaffold.dart';
 import 'package:eaki/components/start_button.dart';
 import 'package:eaki/pages/error_screen.dart';
@@ -82,12 +83,22 @@ class WelcomePage extends ConsumerWidget {
                           : EakiScaffold(
                               title: "Sua senha",
                               body: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Center(
-                                    child: Text(
-                                      queueNumber.number.toString(),
-                                      style: textTheme.headline1,
-                                    ),
+                                  Text("Sua senha atual é:", style: textTheme.headline1),
+                                  Text(
+                                    queueNumber.number.toString(),
+                                    style: textTheme.headline1,
+                                  ),
+                                  AdvanceButton(
+                                    customText: "Nova Senha",
+                                    onPressed: () => {
+                                      Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => const FirstQuestionPage()),
+                                      ),
+                                    },
                                   )
                                 ],
                               ),

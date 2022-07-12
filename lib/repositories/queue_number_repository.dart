@@ -27,7 +27,7 @@ class QueueNumberRepository {
     return query.docs
         .mapIndexed((index, e) => QueueNumber.fromMap(e.data() as Map<String, dynamic>, index + 1))
         .where((element) => element.token == token)
-        .firstOrNull;
+        .lastOrNull;
   }
 
   Future<QueueNumber> generateQueueNumber(QueueNumberDTO queueDTO, String token) async {
@@ -38,7 +38,8 @@ class QueueNumberRepository {
     map["token"] = token;
     final response = await collection.add(map);
 
-    final queueNumbersDocs = await collection.where("date", isGreaterThan: date).orderBy("date").get();
+    final queueNumbersDocs =
+        await collection.where("date", isGreaterThan: date).orderBy("date").get();
 
     final queueNumbersIdList = queueNumbersDocs.docs.map((doc) {
       return doc.id;
