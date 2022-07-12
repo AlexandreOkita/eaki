@@ -6,7 +6,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final currentQueueNumber = FutureProvider.autoDispose<QueueNumber?>((ref) {
   final user = ref.watch(loggedUser);
-  return user == null ? null : ref.watch(queueNumberRepository).getQueueNumberByToken(user.uid, VisitPurpose.procedure);
+  return user == null
+      ? null
+      : ref.watch(queueNumberRepository).getQueueNumberByToken(user.uid, VisitPurpose.procedure);
 });
 
 final queueNumberGeneratorProvider = FutureProvider<QueueNumber>((ref) {
