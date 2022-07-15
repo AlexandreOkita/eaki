@@ -30,9 +30,10 @@ class IsPreferentialPage extends ConsumerWidget {
           OptionButton(
             text: "Senha Preferencial",
             onPressed: () {
-              Navigator.push(
+              Navigator.pushNamedAndRemoveUntil(
                 context,
-                MaterialPageRoute(builder: (context) => const PickNumberPage()),
+                'number',
+                (_) => false,
               );
             },
           ),
