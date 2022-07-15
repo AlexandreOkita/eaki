@@ -1,12 +1,14 @@
 import 'package:eaki/components/not_mapped_button.dart';
 import 'package:eaki/components/open_text_input.dart';
+import 'package:eaki/pages/speciality_not_found_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class OptionTileList extends ConsumerStatefulWidget {
   final List<String> items;
   final AutoDisposeStateProvider<String>? provider;
-  const OptionTileList({this.provider, required this.items, Key? key}) : super(key: key);
+  const OptionTileList({this.provider, required this.items, Key? key})
+      : super(key: key);
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _OptionTileListState();
@@ -22,7 +24,9 @@ class _OptionTileListState extends ConsumerState<OptionTileList> {
     final textTheme = Theme.of(context).textTheme;
     final _scrollController = ScrollController();
     if (search != "") {
-      filteredItems = widget.items.where((item) => item.toLowerCase().contains(search.toLowerCase())).toList();
+      filteredItems = widget.items
+          .where((item) => item.toLowerCase().contains(search.toLowerCase()))
+          .toList();
     } else {
       filteredItems = widget.items;
     }
@@ -40,12 +44,21 @@ class _OptionTileListState extends ConsumerState<OptionTileList> {
         const SizedBox(
           height: 10,
         ),
-        const NotMappedButton(text: "Não encontrei minha especialidade"),
+        NotMappedButton(
+          text: "Não encontrei minha especialidade",
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const SpecialityNotFoundPage(),
+              ),
+            );
+          },
+        ),
         const SizedBox(
           height: 10,
         ),
         Expanded(
-          
           child: Scrollbar(
             thumbVisibility: true,
             controller: _scrollController,
@@ -54,13 +67,16 @@ class _OptionTileListState extends ConsumerState<OptionTileList> {
               itemCount: filteredItems?.length ?? widget.items.length,
               itemBuilder: (BuildContext context, int index) {
                 return Container(
-                  color: selectedIndex == index ? const Color(0x303A76CA) : const Color(0x00ffffff),
+                  color: selectedIndex == index
+                      ? const Color(0x303A76CA)
+                      : const Color(0x00ffffff),
                   child: ListTile(
                     onTap: () => setState(() {
                       selectedIndex = index;
                       if (widget.provider != null) {
                         ref.read(widget.provider!.notifier).state =
-                            filteredItems?[selectedIndex] ?? widget.items[selectedIndex];
+                            filteredItems?[selectedIndex] ??
+                                widget.items[selectedIndex];
                       }
                     }),
                     title: Text(
