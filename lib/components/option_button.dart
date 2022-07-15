@@ -5,7 +5,8 @@ class OptionButton extends ConsumerWidget {
   final void Function()? onPressed;
   final String text;
 
-  const OptionButton({required this.text, this.onPressed, Key? key}) : super(key: key);
+  const OptionButton({required this.text, this.onPressed, Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -21,7 +22,13 @@ class OptionButton extends ConsumerWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(text, style: textTheme.bodyText1),
+              Flexible(
+                child: Text(
+                  text,
+                  style: textTheme.bodyText1,
+                  overflow: TextOverflow.clip,
+                ),
+              ),
               const Icon(
                 Icons.keyboard_arrow_right,
                 color: Color(0xff263238),
