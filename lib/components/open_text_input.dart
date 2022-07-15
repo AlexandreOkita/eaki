@@ -34,6 +34,7 @@ class OpenTextInput extends ConsumerWidget {
   }
 
   String? _defaultValidator(String? value) {
+    print("aoba");
     if (value == null || value.isEmpty) {
       return 'Please enter some text';
     }
