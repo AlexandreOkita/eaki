@@ -33,12 +33,11 @@ class PickNumberPage extends ConsumerWidget {
             pageTitle: 'Senha',
             secondaryText: 'Aguarde ser chamado na tela da recepção.',
             onAdvance: () => {
-              Navigator.pushReplacement(
+              Navigator.pushNamedAndRemoveUntil(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const WelcomePage(),
-                ),
-              ),
+                '/',
+                (_) => false,
+              )
             },
           );
         });

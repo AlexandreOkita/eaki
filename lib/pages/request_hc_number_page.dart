@@ -3,6 +3,7 @@ import 'package:eaki/components/not_mapped_button.dart';
 import 'package:eaki/components/open_text_input.dart';
 import 'package:eaki/pages/is_preferential_page.dart';
 import 'package:eaki/pages/request_name_page.dart';
+import 'package:eaki/providers/queue_number_provider.dart';
 import 'package:eaki/viewmodels/queue_number_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -18,15 +19,21 @@ class RequestHCNumberPage extends ConsumerWidget {
     return GenericFormPage(
       previousOption: previousOption,
       question: "Qual seu número HC?",
-      onAdvance: () => {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const IsPreferentialPage(
-              previousOption: 'Número HC',
+      onAdvance: () {
+        final hcNumber = ref.read(queueNumberDTOProvider).hcNumber;
+        if (hcNumber != null && hcNumber.isNotEmpty) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const IsPreferentialPage(
+                previousOption: 'Número HC',
+              ),
             ),
-          ),
-        ),
+          );
+        } else {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(const SnackBar(content: Text("Por favor, preencha o campo!")));
+        }
       },
       notMappedButton: NotMappedButton(
         text: "Não sei meu número HC",
