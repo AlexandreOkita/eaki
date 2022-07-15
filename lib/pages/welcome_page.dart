@@ -31,7 +31,6 @@ class WelcomePage extends ConsumerWidget {
                     error: (e, st) => ErrorScreen(st, e),
                     loading: () => const LoadingScreen(),
                     data: (queueNumber) {
-                      print(queueNumber);
                       return queueNumber == null
                           ? Scaffold(
                               body: Padding(

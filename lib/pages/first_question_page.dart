@@ -1,6 +1,5 @@
 import 'package:eaki/components/eaki_scaffold.dart';
 import 'package:eaki/components/option_button.dart';
-import 'package:eaki/components/red_back_button.dart';
 import 'package:eaki/pages/go_to_yellow_track_page.dart';
 import 'package:eaki/pages/visit_purpose_page.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +48,6 @@ class FirstQuestionPage extends ConsumerWidget {
               ],
             ),
           ),
-          RedBackButton(onPressed: () => print("aoba")),
         ],
       ),
     );
