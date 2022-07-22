@@ -15,7 +15,8 @@ Alguns exemplos de páginas de formulário são:
 - Página tipo de agendamento (``appointment_type_page.dart``)
 - Página para informar número hc (``request_hc_number_page.dart``)
 
-[INSERIR IMAGEM DE UMA DAS PÁGINAS]
+![image](https://user-images.githubusercontent.com/37855969/180341325-e59b553e-1a0c-45db-b3a9-b705ba7110ef.png)
+
 
 ### Como adicionar uma página de formulário
 
@@ -50,7 +51,8 @@ Alguns exemplos de páginas de resultado são:
 - Página linha amarela (``go_to_yellow_track_page.dart``)
 - Página contendo senha (``pick_number_page.dart``)
 
-[INSERIR IMAGEM DE UMA DAS PÁGINAS]
+![image](https://user-images.githubusercontent.com/37855969/180341242-a6593284-9a30-4a26-bbc7-7f364fe70cdb.png)
+
 
 ### Como adicionar uma página de resultado
 
