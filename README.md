@@ -48,3 +48,7 @@ O código referente a camada View pode ser encontrado nos seguintes diretórios:
 
 O código referente a camada ViewModel está todo contido no diretório `viewmodels/`
 
+## Como Adicionar Novas Telas
+
+Caso deseje alterar ou adicionar novas telas há uma documentação explicando como encontrada nesse link: [Como Adicionar Uma Nova Página](https://github.com/AlexandreOkita/eaki/blob/main/docs/como_adicionar_uma_pagina.md)
+
