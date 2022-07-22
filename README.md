@@ -14,6 +14,37 @@ O eaki é um app multiplataforma desenvolvido em flutter com as seguintes funcio
 
 ## Como Executar
 
-Instale o flutter em sua máquina: https://docs.flutter.dev/get-started/install
+Instale o flutter em sua máquina: <https://docs.flutter.dev/get-started/install>
 
-## Como Testar
+Digite os seguintes comandos no terminal:
+
+- flutter pub get
+- flutter run
+
+Também é possível ver o aplicativo sendo executado no site: <https://eaki-unicamp.web.app>
+
+## Implementação
+
+O código segue uma arquitetura MVVM, sendo todo armazenado dentro da pasta `lib/`.
+
+### Model
+
+O código referente a camada Model pode ser encontrado nos seguintes diretórios:
+
+- `repository/`
+  - Armazena a lógica de dados
+- `models/`
+
+### View
+
+O código referente a camada View pode ser encontrado nos seguintes diretórios:
+
+- `providers/`
+  - Armazena os estados da view
+- `components/`
+- `pages/`
+
+### ViewModel
+
+O código referente a camada ViewModel está todo contido no diretório `viewmodels/`
+
